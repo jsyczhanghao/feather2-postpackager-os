@@ -10,7 +10,7 @@ module.exports = function(ret, conf, setting){
 	}
 
 	feather.util.map(ret.src, function(subpath, file){
-		if(file.isHtmlLike && setting.include.indexOf(file.id)){
+		if(file.isHtmlLike && setting.include.indexOf(file.id) > -1){
 			var loads = [];
 			var arr = [];
 
@@ -58,9 +58,12 @@ module.exports = function(ret, conf, setting){
 			}
 
 			var ID = feather.util.md5(file.id, 32) + '.js';
+
 			var f = feather.file.wrap(feather.project.getProjectPath() + '/static/l_/' + ID);
+			f.useHash = false;
 			f.setContent('require.config({map: {}, deps: {}});' + create());
 			ret.pkg[f.subpath] = f;
+
 			
 			var C = 'var __ID__ = "'+ f.getUrl() +'", __URL__ = "' + setting.url + '" + __ID__; __URL__+= (__URL__.indexOf("?") > -1 ? "&" : "?") + "__random=" + Date.now();  var el = document.createElement(\'script\');el.src =  __URL__ ;document.body.appendChild(el);';
 
