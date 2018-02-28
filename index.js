@@ -62,8 +62,7 @@ module.exports = function(ret, conf, setting){
 			f.setContent('require.config({map: {}, deps: {}});' + create());
 			ret.pkg[f.subpath] = f;
 			
-			var C = 'var __ID__ = "'+ f.getUrl() +'", __URL__ = "' + setting.url + '" + __ID__
-			; __URL__+= (__URL__.indexOf("?") > -1 ? "&" : "?") + "__random=" + Date.now();  var el = document.createElement(\'script\');el.src =  __URL__ ;document.body.appendChild(el);';
+			var C = 'var __ID__ = "'+ f.getUrl() +'", __URL__ = "' + setting.url + '" + __ID__; __URL__+= (__URL__.indexOf("?") > -1 ? "&" : "?") + "__random=" + Date.now();  var el = document.createElement(\'script\');el.src =  __URL__ ;document.body.appendChild(el);';
 
 			if(content.indexOf('__OFFLINE__PLACEHOLDER__') > -1){
 				content = content.replace('__OFFLINE__PLACEHOLDER__', C);
