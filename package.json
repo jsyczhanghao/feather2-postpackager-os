@@ -1,0 +1,19 @@
+{
+  "name": "feather2-postpackager-os",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsyczhanghao/feather2-postpackager-os.git"
+  },
+  "author": "jsyczhanghao@sina.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsyczhanghao/feather2-postpackager-os/issues"
+  },
+  "homepage": "https://github.com/jsyczhanghao/feather2-postpackager-os#readme"
+}
