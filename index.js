@@ -65,7 +65,7 @@ module.exports = function(ret, conf, setting){
 			ret.pkg[f.subpath] = f;
 
 			
-			var C = 'var __ID__ = "'+ f.getUrl() +'", __URL__ = "' + setting.url + '" + __ID__; __URL__+= (__URL__.indexOf("?") > -1 ? "&" : "?") + "__random=" + Date.now();  var el = document.createElement(\'script\');el.src =  __URL__ ;document.body.appendChild(el);';
+			var C = 'require.config(\'deps\', {});var __ID__ = "'+ f.getUrl() +'", __URL__ = "' + setting.url + '" + __ID__; __URL__+= (__URL__.indexOf("?") > -1 ? "&" : "?") + "__random=" + Date.now();  require.async(__URL__);';
 
 			if(content.indexOf('__OFFLINE__PLACEHOLDER__') > -1){
 				content = content.replace('__OFFLINE__PLACEHOLDER__', C);
